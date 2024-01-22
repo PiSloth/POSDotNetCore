@@ -26,7 +26,7 @@ namespace POSDotNetCore.DapperExamples
             //Read();
             //Edit(1);
             //Create("PLO", "Psychology", "Nice to geek");
-            Update(14, "PLO", "Coding", "Nice to code");
+            Update(15, "PLO", "Coding", "Nice to code");
             //Delete(13);
         }
 
@@ -43,10 +43,10 @@ namespace POSDotNetCore.DapperExamples
                 List<BlogDataModel> lst = db.Query<BlogDataModel>(query).ToList();
                 foreach (BlogDataModel item in lst)
                 {
-                    Console.WriteLine(item.Blog_Id);
-                    Console.WriteLine(item.Blog_Author);
-                    Console.WriteLine(item.Blog_Title);
-                    Console.WriteLine(item.Blog_Content);
+                    Console.WriteLine(item.BlogId);
+                    Console.WriteLine(item.BlogAuthor);
+                    Console.WriteLine(item.BlogTitle);
+                    Console.WriteLine(item.BlogContent);
             }
             
         }
@@ -62,16 +62,16 @@ namespace POSDotNetCore.DapperExamples
                             FROM [dbo].[Tbl_Blog] 
                             WHERE Blog_Id = @Blog_Id";
                             
-                           BlogDataModel? item = db.Query(query,new BlogDataModel { Blog_Id = id }).FirstOrDefault();
+                           BlogDataModel? item = db.Query(query,new BlogDataModel { BlogId = id }).FirstOrDefault();
                             if (item is null)
             {
                 Console.WriteLine("No data found.");
                 return;
             }
-            Console.WriteLine(item.Blog_Id);
-            Console.WriteLine(item.Blog_Author);
-            Console.WriteLine(item.Blog_Title);
-            Console.WriteLine(item.Blog_Content);
+            Console.WriteLine(item.BlogId);
+            Console.WriteLine(item.BlogAuthor);
+            Console.WriteLine(item.BlogTitle);
+            Console.WriteLine(item.BlogContent);
 
 
         }
@@ -88,13 +88,13 @@ namespace POSDotNetCore.DapperExamples
                             VALUES (
                              @Blog_Author,
                              @Blog_Title,
-                             @Blog_Content)";
+                             @BlogContent)";
 
             int result = db.Execute(query, new BlogDataModel()
             {
-                Blog_Author = author,
-                Blog_Title = title,
-                Blog_Content = content,
+                BlogAuthor = author,
+                BlogTitle = title,
+                BlogContent = content,
             });
 
             string message = result > 0 ? "Creating Successful." : "Creating Failed.";
@@ -105,14 +105,14 @@ namespace POSDotNetCore.DapperExamples
             using IDbConnection db = new SqlConnection(_connectionStringBuilder.ConnectionString);
             string query = @"UPDATE [dbo].[Tbl_Blog]
    SET [Blog_Title] = @Blog_Title
-      ,[Blog_Author] = @Blog_Author
+      ,[Blog_Author] = @BlogAuthor
       ,[Blog_Content] = @Blog_Content
  WHERE Blog_Id = @Blog_Id";
             BlogDataModel blog = new BlogDataModel() {
-            Blog_Id = id,
-            Blog_Author = author,
-            Blog_Title = title,
-            Blog_Content = content,
+            BlogId = id,
+            BlogAuthor = author,
+            BlogTitle = title,
+            BlogContent = content,
             };
             int result = db.Execute(query, blog);
 
@@ -128,7 +128,7 @@ namespace POSDotNetCore.DapperExamples
       WHERE Blog_Id = @Blog_Id";
             BlogDataModel blog = new BlogDataModel()
             {
-                Blog_Id = id,
+                BlogId = id,
             };
             int result = dbConnection.Execute(query, blog);
 
