@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿//Kabukii sama
+using POSDotNetCore.AdoDotNetExamples;
+
+AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
+
+adoDotNetExample.Run();
