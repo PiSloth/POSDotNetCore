@@ -25,7 +25,9 @@ namespace POSDotNetCore.DapperExamples
         {
             //Read();
             //Edit(1);
-            Create("PLO", "Phychology", "Nice to geek");
+            //Create("PLO", "Psychology", "Nice to geek");
+            Update(14, "PLO", "Coding", "Nice to code");
+            //Delete(13);
         }
 
         private void Read()
@@ -97,6 +99,42 @@ namespace POSDotNetCore.DapperExamples
 
             string message = result > 0 ? "Creating Successful." : "Creating Failed.";
             Console.WriteLine(message);
+        }
+        private void Update (int id , string author, string  title, string content)
+        {
+            using IDbConnection db = new SqlConnection(_connectionStringBuilder.ConnectionString);
+            string query = @"UPDATE [dbo].[Tbl_Blog]
+   SET [Blog_Title] = @Blog_Title
+      ,[Blog_Author] = @Blog_Author
+      ,[Blog_Content] = @Blog_Content
+ WHERE Blog_Id = @Blog_Id";
+            BlogDataModel blog = new BlogDataModel() {
+            Blog_Id = id,
+            Blog_Author = author,
+            Blog_Title = title,
+            Blog_Content = content,
+            };
+            int result = db.Execute(query, blog);
+
+            string message = result > 0 ? "Updating Successful." : "Updating Failed.";
+            Console.WriteLine(message);
+        }
+        private void Delete (int id)
+        {
+            Console.WriteLine($"{id}");
+            using IDbConnection dbConnection = new SqlConnection(_connectionStringBuilder.ConnectionString);
+
+            string query = @$"DELETE FROM [dbo].[Tbl_Blog]
+      WHERE Blog_Id = @Blog_Id";
+            BlogDataModel blog = new BlogDataModel()
+            {
+                Blog_Id = id,
+            };
+            int result = dbConnection.Execute(query, blog);
+
+            string message = result > 0 ? "Deleting Successful." : "Deleting Failed.";
+            Console.WriteLine(message);
+
         }
     }
 }
