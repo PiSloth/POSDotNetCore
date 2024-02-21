@@ -1,5 +1,5 @@
 # C Sharp
 ``` Kabukii ```
-[x] AdoDotNet
-[x] Dapper
-[ ] EntityFramework
+[x]AdoDotNet
+[x]Dapper
+[ ]EntityFramework
