@@ -1,5 +1,8 @@
 # C Sharp
-``` Kabukii ```
-[x]AdoDotNet
-[x]Dapper
-[ ]EntityFramework
+
+```bash
+sudo apt-get install kabukii
+```
+- [x] AdoDotNet
+- [x] Dapper
+- [ ] EntityFramework
