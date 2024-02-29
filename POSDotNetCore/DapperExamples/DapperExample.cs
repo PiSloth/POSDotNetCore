@@ -40,7 +40,7 @@ namespace POSDotNetCore.DapperExamples
                             ,[Blog_Title]
                             ,[Blog_Content] From [dbo].[Tbl_Blog]";
 
-                List<BlogDataModel> lst = db.Query<BlogDataModel>(query).ToList();
+            List<BlogDataModel> lst = db.Query<BlogDataModel>(query).ToList();
                 foreach (BlogDataModel item in lst)
                 {
                     Console.WriteLine(item.BlogId);

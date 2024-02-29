@@ -13,7 +13,7 @@ using POSDotNetCore.EFCoreExamples;
 
 EFCoreExample eFCoreExample = new EFCoreExample();
 eFCoreExample.Edit(1);
-eFCoreExample.Create("Sloths", "Moving Slowing", "But he is strong in sticky");
+eFCoreExample.Create("Sloths", "Moving slowly", "But he is strong in sticky");
 eFCoreExample.Update(1, "Lwin", "Studying", "I'm lazy to study.");
 eFCoreExample.Delete(21);
 eFCoreExample.Read();

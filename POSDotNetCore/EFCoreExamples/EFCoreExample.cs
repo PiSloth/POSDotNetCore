@@ -1,4 +1,5 @@
-﻿using POSDotNetCore.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using POSDotNetCore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace POSDotNetCore.EFCoreExamples
         public void Read()
         {
             
-            List<BlogDataModel> lst =  _db.Blogs.ToList();
+            List<BlogDataModel> lst =  _db.Blogs.AsNoTracking().ToList();
 
             foreach(BlogDataModel item in lst)
             {
@@ -54,7 +55,7 @@ namespace POSDotNetCore.EFCoreExamples
         }
         public void Update (int id, string author, string title, string content)
         {
-            var item = _db.Blogs.FirstOrDefault(item => item.BlogId == id);
+            var item = _db.Blogs.AsNoTracking().FirstOrDefault(item => item.BlogId == id);
             if(item is null)
             {
                 Console.WriteLine("No data found.");
