@@ -23,3 +23,6 @@ sudo apt-get install kabukii
   
 - [x] Api
 - Api complete with swagger
+- [x] Http Client
+- Http Client with Console App (CRUD)
+- [ ] Api to Api (Burma Project Idea - Birds)
