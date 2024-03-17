@@ -21,4 +21,5 @@ sudo apt-get install kabukii
 
 - DbContext (class name AppDpContext)
   
-- [ ] Api
+- [x] Api
+- Api complete with swagger
