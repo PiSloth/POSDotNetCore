@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using POSDotNetCore.WebApi.Models;
 
 
@@ -23,6 +24,18 @@ namespace POSDotNetCore.WebApi.Controllers
             List<BlogDataModel> lst = _db.Blogs.ToList();
             return Ok(lst);
         }
+        [HttpGet("{id}")]
+
+        public IActionResult GetBlogs(int id)
+        {
+            BlogDataModel? item = _db.Blogs.FirstOrDefault(item => item.BlogId == id);
+            if (item == null)
+            {
+                return BadRequest();
+            }
+            return Ok(item);
+        }
+
         [HttpPost]
         public IActionResult CreateBlog(BlogDataModel blog) {
             _db.Blogs.Add(blog);
