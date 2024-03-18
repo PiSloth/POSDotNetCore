@@ -1,0 +1,21 @@
+﻿@model BlogDataModelOnMac;
+@{
+}
+
+<form class="col-md-12" method="post" action="/Blog/Update/@Model.BlogId">
+    <div class="mb-2 d-flex gap-2">
+        <div class="w-25">
+            <label for="BlogAuthor">Author</label>
+            <input class="form-control" id="BlogAuthor" value="@Model.BlogAuthor" name="BlogAuthor"/>
+        </div>
+        <div class="w-25">
+            <label for="BlogTitle">Title</label>
+            <input class="form-control" id="BlogTitle" value="@Model.BlogTitle" name="BlogTitle"/>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="BlogContent">Content</label>
+        <textarea class="form-control" id="BlogContent" name="BlogContent"> @Model.BlogContent</textarea>
+    </div>
+    <button type="submit" class="btn-success">save</button>
+</form>
