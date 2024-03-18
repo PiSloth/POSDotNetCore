@@ -26,3 +26,4 @@ sudo apt-get install kabukii
 - [x] Http Client
 - Http Client with Console App (CRUD)
 - [x] Api to Api (Burma Project Idea - Birds)
+- [x] ASP.Net MCV CRUD (with efcore)
